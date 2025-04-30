@@ -573,6 +573,29 @@ local tooltipPowerColors = {
 }
 local tooltipAnchorMap = {["Top Left"] = "ANCHOR_LEFT", ["Top Right"] = "ANCHOR_RIGHT", 
     ["Bottom Left"] = "ANCHOR_BOTTOMLEFT", ["Bottom Right"] = "ANCHOR_BOTTOMRIGHT"}
+
+
+-- I could not be bothered to figure out the regular expressison nonsense needed for this. AI generated. Assumes the first arguemt will be the spell name. 
+local function ExtractSpellFromFunc(inputString)
+	local pattern = '(%w+:%w+)%("([^"]+)"%)' -- The pattern
+
+	local matchStart, matchEnd = string.find(inputString, pattern) -- Find the entire match
+
+	if matchStart and matchEnd then  -- If a match was found
+		local capturedString = string.sub(inputString, matchStart, matchEnd) -- Extract the matched portion
+
+		local spellNameStart = string.find(capturedString, '"') + 1  -- Find the start of the spell name (after the quote)
+		local spellNameEnd = string.find(capturedString, '"', spellNameStart) - 1 -- Find the end (before the quote)
+
+		if spellNameStart and spellNameEnd then -- Check if quotes were found
+			local spellName = string.sub(capturedString, spellNameStart, spellNameEnd) -- Extract the spell name
+			return spellName
+		else
+			return nil -- Quotes were not found
+		end
+	end
+end
+
 function ShowSpellsTooltip(attachTo, spells, owner)
     SpellsTooltipOwner = owner
     SpellsTooltip:SetOwner(attachTo, tooltipAnchorMap[HMOptions.SpellsTooltip.Anchor], 
@@ -632,6 +655,9 @@ function ShowSpellsTooltip(attachTo, spells, owner)
             elseif SpecialBinds[string.upper(spell)] then
                 rightText = spell
             else -- There is a bound spell
+                if ExtractSpellFromFunc(spell) then -- Accounts for functions. 
+					spell = ExtractSpellFromFunc(spell)
+				end
                 local cost, resource = GetResourceCost(spell)
                 if cost == "unknown" then
                     leftText = colorize(button, 1, 0.4, 0.4)
@@ -1474,6 +1500,7 @@ function ClickHandler(buttonType, unit, ui)
     local currentTargetEnemy = UnitCanAttack("player", "target")
     local spells = UnitCanAttack("player", unit) and GetHostileSpells() or GetSpells()
     local spell = spells[GetKeyModifier()][buttonType]
+    local func = loadstring(spell or "")
     if not UnitIsConnected(unit) or not UnitIsVisible(unit) then
         if spell and SpecialBinds[string.upper(spell)] then
             SpecialBinds[string.upper(spell)](unit, ui)
@@ -1507,11 +1534,11 @@ function ClickHandler(buttonType, unit, ui)
     local isNonSpell = isItem or isMacro
 
     -- Not a special bind
-    if util.IsSuperWowPresent() and not isNonSpell then -- No target changing shenanigans required with SuperWoW
+    if util.IsSuperWowPresent() and not func and not isNonSpell then -- No target changing shenanigans required with SuperWoW
         if HMOptions.AutoTarget and not UnitIsUnit("target", unit) then
             TargetUnit(unit)
         end
-        CastSpellByName(spell, unit)
+		CastSpellByName(spell, unit)
     else
         local currentTarget = UnitName("target")
         local targetChanged = false
@@ -1529,7 +1556,9 @@ function ClickHandler(buttonType, unit, ui)
             UseItem(string.sub(spell, string.len(ITEM_PREFIX) + 1))
         elseif isMacro then
             RunMacro(string.sub(spell, string.len(MACRO_PREFIX) + 1), unit)
-        else
+        elseif func then
+			func()
+		else
             CastSpellByName(spell)
         end
 
