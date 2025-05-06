@@ -1686,7 +1686,6 @@ function EventHandler()
         
     elseif event == "PLAYER_LOGOUT" or event == "PLAYER_QUITING" then
         
-        
     elseif event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
         local unit = arg1
         if not IsRelevantUnit(unit) then
@@ -1722,7 +1721,7 @@ function EventHandler()
         end
 
     elseif event == "PARTY_MEMBERS_CHANGED" or event == "RAID_ROSTER_UPDATE" then
-        CheckGroup()
+
     elseif event == "UNIT_PET" or event == "PLAYER_PET_CHANGED" then
         local unit = arg1
         if IsRelevantUnit(unit) then
@@ -1762,7 +1761,8 @@ function EventHandler()
 end
 
 EventHandlerFrame:SetScript("OnEvent", EventHandler)
-
+HealersMateLib:RegisterBucketEvent("PARTY_MEMBERS_CHANGED", 0.3, function () CheckGroup() end)
+HealersMateLib:RegisterBucketEvent("RAID_ROSTER_UPDATE", 0.3, function () CheckGroup() end)
 
 function hmprint(msg)
     if not HMOptions or not HMOptions["Debug"] then
