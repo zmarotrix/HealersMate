@@ -21,6 +21,8 @@ HealersMate is a unit frames addon for World of Warcraft Vanilla 1.12 tailored f
 - Add players/enemies to a separate Focus group, even if they're not in your party or raid (**[SuperWoW Required](#client-mods-that-enhance-healersmate)**)
 - **MY MAJOR ADDITION:** Call functions as spell cases using the function call directly as the spell cast. Exp: `HealersMate:CastHeal("Greater Heal");` 
 
+<img width="1301" height="561" alt="thetkrytukrd" src="https://github.com/user-attachments/assets/ff82ec50-5137-4a46-b132-db382401e6c3" />
+
 ### Customizable Key Bindings
 Bind key+mouse button combinations to specific spells, allowing you to cast on any player with one click.<br>
 Use the command `/hm` in-game to open the configurator.
