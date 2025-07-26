@@ -7,8 +7,6 @@ Description: A library to provide communication of heals and resurrections.
 Dependencies: AceLibrary, AceEvent-2.0, RosterLib-2.0, ItemBonusLib-1.0
 ]]
 
--- This HealComm was modified by MarcelineVQ and sourced from https://github.com/MarcelineVQ/LunaUnitFrames/
-
 local MAJOR_VERSION = "HealComm-1.0"
 local MINOR_VERSION = "$Revision: 14732 $"
 

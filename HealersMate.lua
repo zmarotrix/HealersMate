@@ -88,7 +88,7 @@ local _G = getfenv(0)
 setmetatable(HealersMate, {__index = getfenv(1)})
 setfenv(1, HealersMate)
 
-VERSION = "2.0.0-alpha5.1"
+VERSION = "2.0.1-MARO-MOD"
 
 TestUI = false
 
@@ -214,7 +214,7 @@ do
     text:SetWidth(manaBar:GetWidth())
     text:SetHeight(manaBar:GetHeight())
     text:SetPoint("CENTER", manaBar, "CENTER")
-    text:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+    text:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 9, "OUTLINE")
     text:SetShadowOffset(0, 0)
     text:SetJustifyH("CENTER")
     text:SetJustifyV("CENTER")
@@ -714,8 +714,8 @@ function ShowSpellsTooltip(attachTo, spells, owner)
 
     
 
-    --spellsTooltipTextLeft1:SetFont("Fonts\\FRIZQT__.TTF", 12, "GameFontNormal")
-    --spellsTooltipTextRight1:SetFont("Fonts\\FRIZQT__.TTF", 12, "GameFontNormal")
+    --spellsTooltipTextLeft1:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 12, "GameFontNormal")
+    --spellsTooltipTextRight1:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 12, "GameFontNormal")
     SpellsTooltip:Show()
 end
 

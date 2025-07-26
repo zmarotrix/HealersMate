@@ -324,8 +324,8 @@ function InitSettings()
             MyTooltip:AddLine(TooltipText2, 0.5, 1, 0.5)
         end
             
-        HMSettingsInfoTooltipTextLeft1:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
-        HMSettingsInfoTooltipTextLeft2:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+        HMSettingsInfoTooltipTextLeft1:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 12, "OUTLINE")
+        HMSettingsInfoTooltipTextLeft2:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 10, "OUTLINE")
         
         MyTooltip:Show()
     end
@@ -472,7 +472,7 @@ function InitSettings()
     do
         local TargetSettingsLabel = optionsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         TargetSettingsLabel:SetPoint("TOPLEFT", optionsFrame, "TOPLEFT", 0, yOffset)
-        TargetSettingsLabel:SetFont("Fonts\\FRIZQT__.TTF", 14)
+        TargetSettingsLabel:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 14)
         TargetSettingsLabel:SetWidth(optionsFrame:GetWidth())
         TargetSettingsLabel:SetJustifyH("CENTER")
         TargetSettingsLabel:SetText("Target Settings")
@@ -563,7 +563,7 @@ function InitSettings()
     do
         local CastingSettingsLabel = optionsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         CastingSettingsLabel:SetPoint("TOPLEFT", optionsFrame, "TOPLEFT", 0, yOffset)
-        CastingSettingsLabel:SetFont("Fonts\\FRIZQT__.TTF", 14)
+        CastingSettingsLabel:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 14)
         CastingSettingsLabel:SetWidth(optionsFrame:GetWidth())
         CastingSettingsLabel:SetJustifyH("CENTER")
         CastingSettingsLabel:SetText("Casting Settings")
@@ -633,7 +633,7 @@ function InitSettings()
     do
         local SpellsTooltipSettingsLabel = optionsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         SpellsTooltipSettingsLabel:SetPoint("TOPLEFT", optionsFrame, "TOPLEFT", 0, yOffset)
-        SpellsTooltipSettingsLabel:SetFont("Fonts\\FRIZQT__.TTF", 14)
+        SpellsTooltipSettingsLabel:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 14)
         SpellsTooltipSettingsLabel:SetWidth(optionsFrame:GetWidth())
         SpellsTooltipSettingsLabel:SetJustifyH("CENTER")
         SpellsTooltipSettingsLabel:SetText("Spells Tooltip Settings")
@@ -921,7 +921,7 @@ function InitSettings()
     do
         local OtherSettingsLabel = optionsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         OtherSettingsLabel:SetPoint("TOPLEFT", optionsFrame, "TOPLEFT", 0, yOffset)
-        OtherSettingsLabel:SetFont("Fonts\\FRIZQT__.TTF", 14)
+        OtherSettingsLabel:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 14)
         OtherSettingsLabel:SetWidth(optionsFrame:GetWidth())
         OtherSettingsLabel:SetJustifyH("CENTER")
         OtherSettingsLabel:SetText("Other Settings")
@@ -1048,7 +1048,7 @@ function InitSettings()
         do
             local TurtleWoWLabel = optionsFrame:CreateFontString("$parentSuperWoWLabel", "OVERLAY", "GameFontNormal")
             TurtleWoWLabel:SetPoint("TOPLEFT", optionsFrame, "TOPLEFT", 0, yOffset)
-            TurtleWoWLabel:SetFont("Fonts\\FRIZQT__.TTF", 14)
+            TurtleWoWLabel:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 14)
             TurtleWoWLabel:SetWidth(optionsFrame:GetWidth())
             TurtleWoWLabel:SetJustifyH("CENTER")
             TurtleWoWLabel:SetText("Turtle WoW Settings")
@@ -1081,7 +1081,7 @@ function InitSettings()
     do
         local SuperWoWLabel = optionsFrame:CreateFontString("$parentSuperWoWLabel", "OVERLAY", "GameFontNormal")
         SuperWoWLabel:SetPoint("TOPLEFT", optionsFrame, "TOPLEFT", 0, yOffset)
-        SuperWoWLabel:SetFont("Fonts\\FRIZQT__.TTF", 14)
+        SuperWoWLabel:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 14)
         SuperWoWLabel:SetWidth(optionsFrame:GetWidth())
         SuperWoWLabel:SetJustifyH("CENTER")
         SuperWoWLabel:SetText("SuperWoW Required Settings")
@@ -1090,7 +1090,7 @@ function InitSettings()
 
         local SuperWoWDetectedLabel = optionsFrame:CreateFontString("$parentSuperWoWDetectedLabel", "OVERLAY", "GameFontNormal")
         SuperWoWDetectedLabel:SetPoint("TOPLEFT", optionsFrame, "TOPLEFT", 0, yOffset)
-        SuperWoWDetectedLabel:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+        SuperWoWDetectedLabel:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 10, "OUTLINE")
         SuperWoWDetectedLabel:SetWidth(optionsFrame:GetWidth())
         SuperWoWDetectedLabel:SetJustifyH("CENTER")
         SuperWoWDetectedLabel:SetText(superwow and util.Colorize("SuperWoW Detected", 0.5, 1, 0.5) or 
@@ -1141,7 +1141,7 @@ function InitSettings()
     do
         local frameStyle = customizeFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         frameStyle:SetPoint("TOP", 0, 0)
-        frameStyle:SetFont("Fonts\\FRIZQT__.TTF", 14)
+        frameStyle:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 14)
         frameStyle:SetWidth(customizeFrame:GetWidth())
         frameStyle:SetJustifyH("CENTER")
         frameStyle:SetText("Choose Frame Style")
@@ -1279,7 +1279,7 @@ function InitSettings()
     do
         local advanced = customizeFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         advanced:SetPoint("TOP", 0, -240)
-        advanced:SetFont("Fonts\\FRIZQT__.TTF", 14)
+        advanced:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 14)
         advanced:SetWidth(customizeFrame:GetWidth())
         advanced:SetJustifyH("CENTER")
         advanced:SetText("Advanced Options")
@@ -1288,7 +1288,7 @@ function InitSettings()
     do
         local explainer = customizeFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         explainer:SetPoint("TOP", 0, -260)
-        explainer:SetFont("Fonts\\FRIZQT__.TTF", 12)
+        explainer:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 12)
         explainer:SetWidth(customizeFrame:GetWidth() * 0.85)
         explainer:SetJustifyH("CENTER")
         explainer:SetText("The Load Script runs after profiles are initialized, but before UIs are created, "..
@@ -1352,7 +1352,7 @@ function InitSettings()
         
         local editTargetLabel = editFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         editTargetLabel:SetPoint("TOP", 0, -207)
-        editTargetLabel:SetFont("Fonts\\FRIZQT__.TTF", 12)
+        editTargetLabel:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 12)
         editTargetLabel:SetWidth(editFrame:GetWidth())
         editTargetLabel:SetJustifyH("CENTER")
 
@@ -1431,7 +1431,8 @@ function InitSettings()
     "\n\n\nOriginal Author: i2ichardt\nEmail: rj299@yahoo.com"..
     "\n\nMaintainer: OldManAlpha\nDiscord: oldmana\nTurtle IGN: Oldmana, Lowall, Jmdruid"..
     "\n\nContributers: Turtle WoW Community, ChatGPT"..
-    "\n\n\nCheck For Updates, Report Issues, Make Suggestions:\n https://github.com/i2ichardt/HealersMate")
+    "\n\n\nThis version has been modified by TyrantKuma/MARO"..
+    "\n\nCheck For Updates, Report Issues, Make Suggestions:\n https://github.com/zmarotrix/HealersMate")
 
     --START--Combobox
 
@@ -1651,14 +1652,14 @@ function InitSettings()
         do
             local explainerHeader = helpFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
             explainerHeader:SetPoint("TOP", 0, 0)
-            explainerHeader:SetFont("Fonts\\FRIZQT__.TTF", 14)
+            explainerHeader:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 14)
             explainerHeader:SetWidth(helpFrame:GetWidth() * 1)
             explainerHeader:SetJustifyH("CENTER")
             explainerHeader:SetText("Spell Binding Help & Info")
 
             local explainer = helpFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
             explainer:SetPoint("TOP", 0, -20)
-            explainer:SetFont("Fonts\\FRIZQT__.TTF", 12)
+            explainer:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", 12)
             explainer:SetWidth(helpFrame:GetWidth() * 0.9)
             explainer:SetJustifyH("LEFT")
             local colorize = util.Colorize

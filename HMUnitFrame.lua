@@ -801,7 +801,7 @@ function HMUnitFrame:AllocateAura()
                 return
             end
             self:SetText(seconds <= 60 and seconds or math.ceil(seconds / 60).."m")
-            self:SetFont("Fonts\\FRIZQT__.TTF", math.ceil(frame:GetHeight() * 
+            self:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", math.ceil(frame:GetHeight() * 
                 (seconds < 540 and (seconds < 10 and 0.6 or 0.45) or 0.35)), "OUTLINE")
         end
         duration.UpdateText = function()
@@ -1079,7 +1079,7 @@ function HMUnitFrame:CreateAura(aura, name, index, texturePath, stacks, xOffset,
     if stacks > 1 then
         local stackText = aura.stackText
         stackText:SetPoint("CENTER", frame, "CENTER", 0, 0)
-        stackText:SetFont("Fonts\\FRIZQT__.TTF", math.ceil(size * (stacks < 10 and 0.75 or 0.6)))
+        stackText:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", math.ceil(size * (stacks < 10 and 0.75 or 0.6)))
         stackText:SetText(stacks)
     end
 
@@ -1454,7 +1454,7 @@ function HMUnitFrame:UpdateComponent(component, props, xOffset, yOffset)
     if component.SetFont then -- Must be a FontString
         component:SetWidth(math.min(props.MaxWidth, anchor:GetWidth()))
         component:SetHeight(props.FontSize * 1.25)
-        component:SetFont("Fonts\\FRIZQT__.TTF", props.FontSize, props.Outline and "OUTLINE" or nil)
+        component:SetFont("Interface\\AddOns\\HealersMate\\assets\\fonts\\Myriad-Pro.ttf", props.FontSize, props.Outline and "OUTLINE" or nil)
         if props.Outline then
             component:SetShadowOffset(0, 0)
         end
