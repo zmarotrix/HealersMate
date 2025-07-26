@@ -227,7 +227,7 @@ do
     local defaultClassTrackedBuffs = {
         ["PALADIN"] = {"Blessing of Wisdom", "Blessing of Might", "Blessing of Salvation", "Blessing of Sanctuary", 
             "Blessing of Kings", "Blessing of Light", "Greater Blessing of Wisdom", "Greater Blessing of Might", 
-            "Greater Blssing of Salvation", "Greater Blessing of Sanctuary", "Greater Blessing of Kings", "Daybreak", 
+            "Greater Blessing of Salvation", "Greater Blessing of Sanctuary", "Greater Blessing of Kings", "Daybreak", 
             "Blessing of Freedom", "Hand of Freedom", "Redoubt", "Holy Shield"},
         ["PRIEST"] = {"Prayer of Fortitude", "Power Word: Fortitude", "Prayer of Spirit", "Divine Spirit", 
             "Prayer of Shadow Protection", "Shadow Protection", "Holy Champion", "Champion's Grace", "Empower Champion", 
