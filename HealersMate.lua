@@ -88,7 +88,7 @@ local _G = getfenv(0)
 setmetatable(HealersMate, {__index = getfenv(1)})
 setfenv(1, HealersMate)
 
-VERSION = "2.0.1-MARO-MOD"
+VERSION = "2.0.2-MARO-Dev"
 
 TestUI = false
 
@@ -561,6 +561,7 @@ end
 
 local ITEM_PREFIX = "Item: "
 local MACRO_PREFIX = "Macro: "
+local SMART_PREFIX = "Smart: "
 local lowToHighColors = {
     {1, 0, 0}, 
     {1, 0.9, 0}, 
@@ -658,6 +659,9 @@ function ShowSpellsTooltip(attachTo, spells, owner)
                 if ExtractSpellFromFunc(spell) then -- Accounts for functions. 
 					spell = ExtractSpellFromFunc(spell)
 				end
+                if util.StartsWith(spell, SMART_PREFIX) then -- Removes Smart Prefix.
+                    spell = string.sub(spell, string.len(SMART_PREFIX) + 1)
+                end
                 local cost, resource = GetResourceCost(spell)
                 if cost == "unknown" then
                     leftText = colorize(button, 1, 0.4, 0.4)
@@ -1531,14 +1535,26 @@ function ClickHandler(buttonType, unit, ui)
 
     local isItem = util.StartsWith(spell, ITEM_PREFIX)
     local isMacro = util.StartsWith(spell, MACRO_PREFIX)
+    local isSmart = util.StartsWith(spell, SMART_PREFIX)
     local isNonSpell = isItem or isMacro
+
+    if isSmart then
+        spell = string.sub(spell, string.len(SMART_PREFIX) + 1)
+        if SmartHealer ~= nil then 
+            spell = spell .. "(Rank " .. SmartHealer:GetOptimalRank(spell, unit) .. ")"
+        else
+            print("HealersMate: SmartHealer not present. Casting Dumb.")
+        end
+    end
 
     -- Not a special bind
     if util.IsSuperWowPresent() and not func and not isNonSpell then -- No target changing shenanigans required with SuperWoW
+
         if HMOptions.AutoTarget and not UnitIsUnit("target", unit) then
             TargetUnit(unit)
         end
-		CastSpellByName(spell, unit)
+
+        CastSpellByName(spell, unit)
     else
         local currentTarget = UnitName("target")
         local targetChanged = false
@@ -1579,6 +1595,9 @@ function ClickHandler(buttonType, unit, ui)
                     --TargetByName(currentTarget)
                 end
             end
+        end
+        if currentTargetEnemy and UnitAffectingCombat("player") then
+            AttackTarget()
         end
     end
 end

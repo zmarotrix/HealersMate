@@ -227,7 +227,7 @@ do
     local defaultClassTrackedBuffs = {
         ["PALADIN"] = {"Blessing of Wisdom", "Blessing of Might", "Blessing of Salvation", "Blessing of Sanctuary", 
             "Blessing of Kings", "Blessing of Light", "Greater Blessing of Wisdom", "Greater Blessing of Might", 
-            "Greater Blssing of Salvation", "Greater Blessing of Sanctuary", "Greater Blessing of Kings", "Daybreak", 
+            "Greater Blessing of Salvation", "Greater Blessing of Sanctuary", "Greater Blessing of Kings", "Daybreak", 
             "Blessing of Freedom", "Hand of Freedom", "Redoubt", "Holy Shield"},
         ["PRIEST"] = {"Prayer of Fortitude", "Power Word: Fortitude", "Prayer of Spirit", "Divine Spirit", 
             "Prayer of Shadow Protection", "Shadow Protection", "Holy Champion", "Champion's Grace", "Empower Champion", 
@@ -1674,10 +1674,12 @@ function InitSettings()
             colorize("Focus", 0.6, 0.6, 1)..colorize(" (SuperWoW Required)", 1, 0.8, 0.8).." - ".."Add/remove a unit to your focus\n"..
             colorize("Promote Focus", 0.6, 0.6, 1)..colorize(" (SuperWoW Required)", 1, 0.8, 0.8).." - "..
                 "Moves the focus to the top\n\n"..
-            colorize("Binding Items: ", 1, 0.6, 0.6).."Prefix \"Item: \" to indicate that you're binding an item in your bags."..
-                " For example, "..colorize("Item: Silk Bandage", 0.6, 1, 0.6).."\n\n"..
-            colorize("Binding Macros: ", 1, 0.6, 0.6).."Prefix \"Macro: \" to indicate that you're binding a macro. For example, "..
-                colorize("Macro: Summon", 0.6, 1, 0.6).."\n\n"..
+            colorize("Binding Items: ", 1, 0.6, 0.6).."Prefix \"Item: \" to indicate that you're binding an item in your bags.".. "\n\n" ..
+                "EXAMPLE: "..colorize("Item: Silk Bandage", 0.6, 1, 0.6).."\n\n"..
+            colorize("Binding SmartHealer: ", 1, 0.6, 0.6).."Prefix \"Smart: \" to indicate that you want to cast using SmartHealer. Requires SmartHealer installed.".. "\n\n" ..
+                "EXAMPLE: "..colorize("Smart: Greater Heal", 0.6, 1, 0.6).."\n\n"..
+            colorize("Binding Macros: ", 1, 0.6, 0.6).."Prefix \"Macro: \" to indicate that you're binding a macro.".. "\n\n" ..
+                "EXAMPLE: "..colorize("Macro: Summon", 0.6, 1, 0.6).."\n\n"..
             colorize("Information on Macros: ", 1, 0.6, 0.6).."When clicking on a unit with macro binds, you will automatically"..
                 " target them for a split second, allowing you to use the \"target\" unit in your macros. Additionally, the "..
                 "global \"HM_MacroTarget\" is exposed, allowing you to see the actual unit that was clicked, such as "..
